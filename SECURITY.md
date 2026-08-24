@@ -4,10 +4,10 @@
 
 Snap2Cal has not yet published a stable v1.0 release.
 
-| Version                          | Status                                                |
-| -------------------------------- | ----------------------------------------------------- |
-| Current `0.1.x` development line | Best-effort security fixes during release preparation |
-| Older snapshots                  | Not supported                                         |
+| Version                        | Status                                             |
+| ------------------------------ | -------------------------------------------------- |
+| Current `1.0.0-rc.x` line      | Best-effort security fixes during candidate review |
+| Untagged development snapshots | Not supported                                      |
 
 This table will be updated when a stable release exists. No response or remediation deadline is promised.
 
@@ -15,7 +15,7 @@ This table will be updated when a stable release exists. No response or remediat
 
 Do not open a public Issue for a vulnerability or include exploit details, credentials, private images, schedules, rosters, or other personal data in public repository content.
 
-Use GitHub Private Vulnerability Reporting when the repository owner has enabled it. That setting has not been enabled by this local preparation task. No security email address has been confirmed, so this policy does not invent one. If no private channel is available, ask the repository owner for a private reporting channel without disclosing vulnerability details.
+GitHub Private Vulnerability Reporting is not enabled for this repository, and no security email address has been confirmed. Ask the repository owner for a private reporting channel without disclosing vulnerability details publicly. This policy does not promise a response or remediation deadline.
 
 A useful private report includes the affected version or commit, a minimal synthetic reproduction, impact, browser and operating system, and any suggested mitigation. Never attach real user data.
 

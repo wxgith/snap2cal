@@ -20,7 +20,7 @@ The browser and operating system decide where downloads are stored. A calendar a
 
 Local development and CI are different from application runtime. `npm install` or `npm ci` downloads packages from the configured npm registry. `npm run prepare:ocr` obtains pinned language files during the build stage and records their SHA-256 digests. These operations require network access but do not contain or transmit user input.
 
-When GitHub Pages is enabled, GitHub supplies static hosting and may process ordinary web-server metadata according to GitHub's own terms. Snap2Cal does not add analytics or reporting scripts. The project currently has no confirmed public Pages deployment.
+GitHub Pages supplies the public static deployment at <https://wxgith.github.io/snap2cal/> and may process ordinary web-server metadata according to GitHub's own terms. Snap2Cal does not add analytics or reporting scripts.
 
 ## Public contributions
 

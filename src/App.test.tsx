@@ -15,7 +15,7 @@ describe("App", () => {
 
   it("displays the package-derived application version", () => {
     render(<App />);
-    expect(screen.getByText("Snap2Cal v0.1.0")).toBeVisible();
+    expect(screen.getByText("Snap2Cal v1.0.0-rc.1")).toBeVisible();
   });
 
   it("解析、展示、编辑并保留手工修改标记", async () => {

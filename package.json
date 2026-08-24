@@ -1,7 +1,7 @@
 {
   "name": "snap2cal",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0-rc.1",
   "description": "A browser-local tool for turning event text, screenshots, timetables, and shift rosters into reviewable ICS calendar files.",
   "license": "MIT",
   "repository": {
