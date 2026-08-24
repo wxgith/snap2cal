@@ -4,11 +4,18 @@ Turn event text, screenshots, timetables, and shift rosters into reviewable ICS 
 
 **English** | [简体中文](README.zh-CN.md)
 
+[![CI](https://github.com/wxgith/snap2cal/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/wxgith/snap2cal/actions/workflows/ci.yml)
+[![Full verification](https://github.com/wxgith/snap2cal/actions/workflows/full-verification.yml/badge.svg?branch=main)](https://github.com/wxgith/snap2cal/actions/workflows/full-verification.yml)
+[![Pages](https://github.com/wxgith/snap2cal/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/wxgith/snap2cal/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+[Source](https://github.com/wxgith/snap2cal) | [Issues](https://github.com/wxgith/snap2cal/issues) | [Security](https://github.com/wxgith/snap2cal/security/policy) | [Releases](https://github.com/wxgith/snap2cal/releases) | [Actions](https://github.com/wxgith/snap2cal/actions)
+
 > Privacy first: user text, images, OCR results, courses, and rosters stay in the current browser tab. Snap2Cal has no backend, account, analytics SDK, remote error reporting, or cloud OCR.
 
 ![Snap2Cal text event review with synthetic example data](docs/images/text-event-result.png)
 
-All demo names, courses, places, and rosters in this repository are fictional. CI workflows are prepared, but no status badge or public Pages URL is shown because this local repository has no confirmed GitHub remote.
+All demo names, courses, places, and rosters in this repository are fictional.
 
 ## What it does
 
@@ -44,7 +51,7 @@ The production application loads its worker, WASM core, language data, JavaScrip
 
 ## Public demo
 
-A hosted demo has not been published because the GitHub repository and Pages URL are not yet confirmed. To run the same static application locally:
+GitHub Pages deployment is being configured. The hosted URL will be added only after GitHub's Pages API confirms it. To run the same static application locally:
 
 ```bash
 npm run prepare:ocr

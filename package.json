@@ -4,6 +4,13 @@
   "version": "0.1.0",
   "description": "A browser-local tool for turning event text, screenshots, timetables, and shift rosters into reviewable ICS calendar files.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxgith/snap2cal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wxgith/snap2cal/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=24 <25"

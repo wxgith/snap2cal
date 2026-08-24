@@ -25,6 +25,7 @@ describe("public repository content", () => {
       expect(images.length).toBeGreaterThanOrEqual(5);
       for (const [, alt, target] of images) {
         expect(alt.trim()).not.toBe("");
+        if (/^https?:\/\//.test(target)) continue;
         expect((await stat(path.join(REPOSITORY_ROOT, target))).isFile()).toBe(true);
       }
     }
@@ -68,6 +69,27 @@ describe("public repository content", () => {
     expect(confirmations).not.toMatch(/^\s*-\s*\[ \]/m);
     expect(settings).toContain("`snap2cal`");
     expect(settings).toContain("`public`");
+  });
+
+  it("uses the confirmed GitHub repository metadata", async () => {
+    const packageJson = JSON.parse(await read("package.json"));
+    const readmes = [await read("README.md"), await read("README.zh-CN.md")];
+
+    expect(packageJson.repository).toEqual({
+      type: "git",
+      url: "git+https://github.com/wxgith/snap2cal.git",
+    });
+    expect(packageJson.bugs).toEqual({
+      url: "https://github.com/wxgith/snap2cal/issues",
+    });
+    for (const readme of readmes) {
+      expect(readme).toContain("github.com/wxgith/snap2cal/actions/workflows/ci.yml");
+      expect(readme).toContain(
+        "github.com/wxgith/snap2cal/actions/workflows/full-verification.yml",
+      );
+      expect(readme).toContain("github.com/wxgith/snap2cal/actions/workflows/pages.yml");
+      expect(readme).toContain("github.com/wxgith/snap2cal/security/policy");
+    }
   });
 
   it("provides parseable Issue Forms with required privacy confirmation", async () => {

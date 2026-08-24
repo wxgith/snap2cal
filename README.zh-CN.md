@@ -4,11 +4,18 @@
 
 [English](README.md) | **简体中文**
 
+[![CI](https://github.com/wxgith/snap2cal/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/wxgith/snap2cal/actions/workflows/ci.yml)
+[![Full verification](https://github.com/wxgith/snap2cal/actions/workflows/full-verification.yml/badge.svg?branch=main)](https://github.com/wxgith/snap2cal/actions/workflows/full-verification.yml)
+[![Pages](https://github.com/wxgith/snap2cal/actions/workflows/pages.yml/badge.svg?branch=main)](https://github.com/wxgith/snap2cal/actions/workflows/pages.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+[源码](https://github.com/wxgith/snap2cal) | [问题反馈](https://github.com/wxgith/snap2cal/issues) | [安全策略](https://github.com/wxgith/snap2cal/security/policy) | [发布记录](https://github.com/wxgith/snap2cal/releases) | [Actions](https://github.com/wxgith/snap2cal/actions)
+
 > 隐私优先：用户文字、图片、OCR 结果、课程和排班只保留在当前浏览器标签页。Snap2Cal 没有后端、账号、分析 SDK、远程错误上报或云 OCR。
 
 ![使用合成示例数据的 Snap2Cal 文字事件核对界面](docs/images/text-event-result.png)
 
-仓库中的演示姓名、课程、地点和排班均为虚构数据。CI 工作流已经准备，但本地仓库尚无已确认的 GitHub remote，因此不展示虚假的状态徽章或 Pages 地址。
+仓库中的演示姓名、课程、地点和排班均为虚构数据。
 
 ## 功能概览
 
@@ -44,7 +51,7 @@ npm run dev
 
 ## 公开演示
 
-GitHub 仓库和 Pages 地址尚未确认，因此本次没有发布在线演示。可以在本地运行同一份静态应用：
+GitHub Pages 正在配置中。只有 GitHub Pages API 返回真实地址后，才会在此加入在线演示链接。当前可以在本地运行同一份静态应用：
 
 ```bash
 npm run prepare:ocr

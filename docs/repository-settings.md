@@ -1,20 +1,17 @@
 # GitHub repository settings
 
-These settings must be completed manually in the eventual GitHub repository. The intended repository name is `snap2cal`, and the intended visibility is `public`. The owner and default branch are not yet confirmed. This local task does not create a repository, change visibility, enable Pages, configure protection, or enable security features.
-
-Placeholders such as `<owner>` and `<default-branch>` are instructions, not live links.
+The public repository is [`wxgith/snap2cal`](https://github.com/wxgith/snap2cal). Its repository name is `snap2cal`, its owner is `wxgith`, its default branch is `main`, and its confirmed visibility is `public`. The `origin` URL is `https://github.com/wxgith/snap2cal.git`.
 
 ## Repository
 
-1. Confirm the owner and default branch; verify the repository name is `snap2cal`.
-2. Set an accurate description such as: `Turn event text, screenshots, timetables, and shift rosters into reviewable ICS files locally in the browser.`
-3. Consider topics such as `calendar`, `ics`, `ocr`, `timetable`, `shift-roster`, `react`, and `typescript`.
-4. Enable Issues only after the Issue Forms and privacy guidance have been reviewed.
-5. Apply the confirmed `public` visibility only after current files and any imported history have been scanned for credentials and private data.
+1. Description: `Turn event text, screenshots, timetables, and shift rosters into reviewable ICS files locally in your browser.`
+2. Topics: `calendar`, `ics`, `local-first`, `ocr`, `privacy`, `react`, `shift-roster`, `tesseract`, `timetable`, and `typescript`.
+3. Issues are enabled after review of the Issue Forms and privacy guidance.
+4. The repository is public after a secret, personal-path, generated-file, and large-file scan.
 
 ## Branch protection
 
-For `<default-branch>`, consider a ruleset that:
+Branch protection is intentionally not configured during the initial publication. A future ruleset for `main` may:
 
 - requires pull requests;
 - requires the branch to be up to date before merging;
@@ -41,7 +38,7 @@ The manually triggered full-verification workflow also exposes `Focused verifica
 3. Verify the repository subpath, refresh behavior, dynamic timetable and roster modules, OCR Worker/WASM, both language files, all four modes, downloads, and zero third-party runtime requests.
 4. Do not configure a custom domain during the initial release check.
 
-The workflow derives the base path from `github.repository`; no repository name is hard-coded. This document does not claim that Pages is enabled.
+The workflow derives the base path from `github.repository`; no repository name is hard-coded. The actual Pages URL will be recorded here after the Pages API confirms it.
 
 ## Security
 
