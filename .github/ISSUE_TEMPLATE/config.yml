@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security policy
+    url: ../../security/policy
+    about: Do not disclose a vulnerability in a public Issue. Read the repository security policy and use a private reporting channel when available.
+  - name: Support guide
+    url: ../../blob/HEAD/SUPPORT.md
+    about: Choose the right support channel and use synthetic data only.

@@ -1,0 +1,1 @@
+ab048054a693fec852e0b1598572ee3ef6001ceede133249b30ce08c82d56319  snap2cal-v0.1.0-static-site.zip

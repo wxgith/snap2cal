@@ -1,0 +1,27 @@
+{
+  "synthetic": true,
+  "generatedBy": "npm run capture:demo",
+  "notice": "All demo names, courses, places, dates, and roster entries are fictional.",
+  "files": [
+    {
+      "name": "single-event.png",
+      "bytes": 13676,
+      "sha256": "90e553f333e10ff9bd7708acd9ba13f52e9d734684378ee92538b9a8f1c12986"
+    },
+    {
+      "name": "multi-event.png",
+      "bytes": 10914,
+      "sha256": "71aca21e5c8b364dac3f73e4012c530a4a3ae7eab03175d0fc4dfa33e949360c"
+    },
+    {
+      "name": "timetable.png",
+      "bytes": 7520,
+      "sha256": "d0d1efa8eef3cb2a6b8c4db5a010f21109e732facdca09c4a0c52d8c4cfa2044"
+    },
+    {
+      "name": "shift-roster.png",
+      "bytes": 4734,
+      "sha256": "1ecea8e176372b6b54cba8ada8fcfc8ff979c53fbbae2755a0634d2d1d5a2c70"
+    }
+  ]
+}

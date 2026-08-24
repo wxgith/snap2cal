@@ -1,0 +1,17 @@
+node_modules/
+dist/
+artifacts/
+release/*.zip
+coverage/
+.vite/
+playwright-report/
+test-results/
+public/ocr/
+*.tsbuildinfo
+*.log
+*.tmp
+*.zip
+.env*
+!.env.example
+.DS_Store
+Thumbs.db

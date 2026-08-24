@@ -1,0 +1,39 @@
+name: Full verification
+
+on:
+  workflow_dispatch:
+  push:
+  schedule:
+    - cron: "17 19 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: full-verification-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  focused-verification:
+    name: Focused verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run prepare:ocr
+      - run: npm run generate:license-report -- --check
+      - run: npm run validate:repo
+      - run: npm run verify:ocr
+      - run: npm run verify:multi-event
+      - run: npm run verify:schedule-table
+      - run: npm run verify:shift-roster
+      - run: npm run build
+      - run: npm run validate:dist
+      - run: npm run validate:runtime-network
+      - run: npm run validate:production-mocks

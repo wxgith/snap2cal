@@ -1,0 +1,56 @@
+name: Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build Pages artifact
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - uses: actions/configure-pages@v5
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Derive repository base path
+        run: node -e "const fs=require('node:fs'); const name=process.env.GITHUB_REPOSITORY.split('/').at(-1); fs.appendFileSync(process.env.GITHUB_ENV, 'VITE_BASE_PATH=/' + name + '/\n')"
+      - run: npm run prepare:ocr
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run verify:pages-base
+      - run: npm run build
+      - run: npm run validate:dist
+      - run: npm run validate:production-mocks
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy static site
+        id: deployment
+        uses: actions/deploy-pages@v4

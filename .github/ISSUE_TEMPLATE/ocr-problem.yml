@@ -1,0 +1,73 @@
+name: OCR problem
+description: Report local OCR or evidence-mapping behavior with a synthetic example.
+title: "[OCR]: "
+labels:
+  - ocr
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prefer a newly created synthetic image. If that is impossible, crop to the minimum area and fully remove identifying details. Accuracy issues are usually not security vulnerabilities; use the security policy for suspected data exposure.
+  - type: dropdown
+    id: image-type
+    attributes:
+      label: Image type
+      options:
+        - PNG
+        - JPEG
+        - WebP
+        - Unsupported format
+    validations:
+      required: true
+  - type: input
+    id: dimensions
+    attributes:
+      label: Image dimensions
+      placeholder: 1200 x 800 pixels
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: OCR language content
+      options:
+        - Simplified Chinese
+        - English
+        - Mixed Simplified Chinese and English
+        - Other or unsupported
+    validations:
+      required: true
+  - type: textarea
+    id: incorrect-text
+    attributes:
+      label: Incorrect text or evidence behavior
+      description: Describe expected and actual text without including private source content.
+    validations:
+      required: true
+  - type: checkboxes
+    id: image-characteristics
+    attributes:
+      label: Image characteristics
+      options:
+        - label: Complex or decorative background
+        - label: Skewed or rotated
+        - label: Handwritten text
+        - label: Very small text
+        - label: Borderless or merged table layout
+  - type: dropdown
+    id: synthetic-example
+    attributes:
+      label: Can you provide a newly made synthetic reproduction?
+      options:
+        - Yes
+        - No; I will provide only a minimal, cropped, fully redacted example
+        - No attachment is needed
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: I have not uploaded a real timetable, roster, private chat, contact detail, internal organization information, logo, portrait, QR code, or other unredacted personal data.
+          required: true

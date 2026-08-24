@@ -1,0 +1,34 @@
+{
+  "synthetic": true,
+  "notice": "All demo names, courses, places, dates, and roster entries are fictional.",
+  "locale": "zh-CN",
+  "timeZone": "Asia/Shanghai",
+  "referenceDateTime": "2026-08-24T09:00:00+08:00",
+  "singleEvent": {
+    "title": "项目评审会",
+    "date": "2026年9月8日",
+    "time": "上午9点到10点30分",
+    "location": "示例会议室",
+    "reminder": "提前30分钟提醒"
+  },
+  "multipleEvents": {
+    "date": "8月26日",
+    "items": ["09:00 项目评审", "14:00 需求沟通", "19:00 团队晚餐"]
+  },
+  "timetable": {
+    "title": "示例课程表",
+    "headers": ["时间", "周一", "周二", "周三"],
+    "rows": [
+      ["08:00-09:40", "高等数学\\n1-4周\\n示例教室", "", ""],
+      ["10:00-11:40", "", "", "大学英语\\n双周\\n示例教室"]
+    ]
+  },
+  "shiftRoster": {
+    "title": "示例排班表",
+    "headers": ["人员", "9月1日", "9月2日", "9月3日", "9月4日"],
+    "rows": [
+      ["张三", "A", "N", "OFF", "A"],
+      ["李四", "N", "A", "A", "OFF"]
+    ]
+  }
+}

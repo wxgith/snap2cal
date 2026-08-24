@@ -1,0 +1,60 @@
+name: Feature request
+description: Describe a user problem that the current four modes do not solve.
+title: "[Feature]: "
+labels:
+  - feature
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Describe the real-life difficulty, not only a proposed interface.
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Current workaround
+    validations:
+      required: true
+  - type: textarea
+    id: existing-modes
+    attributes:
+      label: Why the four existing modes do not solve it
+      description: Consider text event, image event, timetable, and shift roster.
+    validations:
+      required: true
+  - type: dropdown
+    id: data-boundary
+    attributes:
+      label: Does the request involve accounts, cloud processing, a backend, or personal data?
+      options:
+        - No
+        - Yes; privacy and local-processing implications are described below
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: privacy-impact
+    attributes:
+      label: Privacy and network implications
+      description: Do not include real user data.
+    validations:
+      required: true
+  - type: dropdown
+    id: fixture-contribution
+    attributes:
+      label: Would you contribute a deterministic synthetic test fixture?
+      options:
+        - Yes
+        - Maybe
+        - No
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy confirmation
+      options:
+        - label: This request contains no unredacted personal schedule, timetable, roster, chat, contact detail, address, or internal organization information.
+          required: true

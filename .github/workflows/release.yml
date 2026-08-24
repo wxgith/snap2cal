@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  draft-release:
+    name: Validate and draft release
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - run: npm ci
+      - name: Validate tag and package version
+        run: node -e "const p=require('./package.json'); const expected='v' + p.version; if(process.env.GITHUB_REF_NAME !== expected) throw new Error('Tag must equal ' + expected)"
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run prepare:ocr
+      - run: npm run generate:license-report -- --check
+      - run: npm run validate:repo -- --require-publishable
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run format:check
+      - run: npm run test
+      - run: npm run test:e2e
+      - run: npm run verify:ocr
+      - run: npm run verify:multi-event
+      - run: npm run verify:schedule-table
+      - run: npm run verify:shift-roster
+      - run: npm run test:cross-browser
+      - run: npm run test:a11y
+      - run: npm run build
+      - run: npm run validate:dist
+      - run: npm run validate:runtime-network
+      - run: npm run validate:production-mocks
+      - run: npm run verify:pages-base
+      - run: npm run package:release -- --require-publishable --tag ${{ github.ref_name }}
+      - run: npm run validate:release -- --require-publishable --tag ${{ github.ref_name }}
+      - name: Create Draft Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.ref_name }}" release/*.zip release/*-SHA256SUMS.txt --draft --generate-notes --title "Snap2Cal ${{ github.ref_name }}"

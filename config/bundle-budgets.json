@@ -1,0 +1,22 @@
+{
+  "main": {
+    "rawBytes": 292000,
+    "gzipBytes": 94000
+  },
+  "scheduleTable": {
+    "rawBytes": 46000,
+    "gzipBytes": 14500
+  },
+  "shiftRoster": {
+    "rawBytes": 55000,
+    "gzipBytes": 16500
+  },
+  "ocrAdapter": {
+    "rawBytes": 26000,
+    "gzipBytes": 11000
+  },
+  "applicationJavaScriptRawBytes": 460000,
+  "distBytes": 55000000,
+  "ocrBytes": 52000000,
+  "largestOcrFileBytes": 5000000
+}

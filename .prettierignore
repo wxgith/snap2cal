@@ -1,0 +1,8 @@
+artifacts
+dist
+docs/dependency-licenses.md
+node_modules
+playwright-report
+public/ocr
+release
+test-results
