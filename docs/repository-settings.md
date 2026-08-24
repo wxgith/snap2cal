@@ -33,12 +33,14 @@ The manually triggered full-verification workflow also exposes `Focused verifica
 
 ## Pages
 
-1. In **Settings > Pages**, select **GitHub Actions** as the source.
-2. Manually run the `Pages` workflow from the confirmed default branch.
-3. Verify the repository subpath, refresh behavior, dynamic timetable and roster modules, OCR Worker/WASM, both language files, all four modes, downloads, and zero third-party runtime requests.
-4. Do not configure a custom domain during the initial release check.
+- URL: <https://wxgith.github.io/snap2cal/>
+- Build type: `workflow`
+- Workflow: [`pages.yml`](../.github/workflows/pages.yml)
+- Initial deployment: [run 32697590243](https://github.com/wxgith/snap2cal/actions/runs/32697590243)
+- HTTPS: enforced
+- Custom domain: not configured
 
-The workflow derives the base path from `github.repository`; no repository name is hard-coded. The actual Pages URL will be recorded here after the Pages API confirms it.
+The workflow derives the base path from `github.repository`; no repository name is hard-coded. The deployed repository subpath, refresh behavior, dynamic timetable and roster modules, real OCR Worker/WASM and language data, synthetic demo images, ICS generation, zero observed third-party assets, and 390px/1280px layouts were verified against the live URL.
 
 ## Security
 

@@ -51,7 +51,7 @@ The production application loads its worker, WASM core, language data, JavaScrip
 
 ## Public demo
 
-GitHub Pages deployment is being configured. The hosted URL will be added only after GitHub's Pages API confirms it. To run the same static application locally:
+[Open the live Snap2Cal demo](https://wxgith.github.io/snap2cal/). GitHub Pages serves the same static application from the repository subpath. To run it locally:
 
 ```bash
 npm run prepare:ocr

@@ -82,6 +82,7 @@ describe("public repository content", () => {
     expect(packageJson.bugs).toEqual({
       url: "https://github.com/wxgith/snap2cal/issues",
     });
+    expect(packageJson.homepage).toBe("https://wxgith.github.io/snap2cal/");
     for (const readme of readmes) {
       expect(readme).toContain("github.com/wxgith/snap2cal/actions/workflows/ci.yml");
       expect(readme).toContain(
@@ -89,6 +90,7 @@ describe("public repository content", () => {
       );
       expect(readme).toContain("github.com/wxgith/snap2cal/actions/workflows/pages.yml");
       expect(readme).toContain("github.com/wxgith/snap2cal/security/policy");
+      expect(readme).toContain("https://wxgith.github.io/snap2cal/");
     }
   });
 

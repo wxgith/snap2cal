@@ -11,6 +11,7 @@
   "bugs": {
     "url": "https://github.com/wxgith/snap2cal/issues"
   },
+  "homepage": "https://wxgith.github.io/snap2cal/",
   "type": "module",
   "engines": {
     "node": ">=24 <25"

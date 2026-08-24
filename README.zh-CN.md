@@ -51,7 +51,7 @@ npm run dev
 
 ## 公开演示
 
-GitHub Pages 正在配置中。只有 GitHub Pages API 返回真实地址后，才会在此加入在线演示链接。当前可以在本地运行同一份静态应用：
+[打开 Snap2Cal 在线演示](https://wxgith.github.io/snap2cal/)。GitHub Pages 从仓库子路径托管同一份静态应用。本地运行方式：
 
 ```bash
 npm run prepare:ocr
