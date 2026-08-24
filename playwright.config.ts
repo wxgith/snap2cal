@@ -8,7 +8,12 @@ export default defineConfig({
   fullyParallel: true,
   retries: 0,
   reporter: "list",
-  use: { baseURL, trace: "on-first-retry" },
+  use: {
+    baseURL,
+    locale: "zh-CN",
+    timezoneId: "Asia/Shanghai",
+    trace: "on-first-retry",
+  },
   webServer: skipWebServer
     ? undefined
     : {

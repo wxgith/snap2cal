@@ -255,7 +255,11 @@ try {
   await waitForServer(server);
   browser = await chromium.launch({ headless: true });
   const image = await makeRosterFixture(browser);
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  const page = await browser.newPage({
+    locale: "zh-CN",
+    timezoneId: "Asia/Shanghai",
+    viewport: { width: 1280, height: 900 },
+  });
   const requestedUrls = [];
   const externalRequests = [];
   page.on("request", (request) => {
