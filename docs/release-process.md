@@ -18,10 +18,10 @@ The release workflow rejects an unresolved blocker or a tag that differs from th
 The first candidate should normally be `v1.0.0-rc.1`.
 
 ```bash
-git checkout -b release/v1.0.0
+git checkout -b release/v1.0.0-rc.1
 npm ci
 npm run prepare:ocr
-npm run generate:license-report
+npm run generate:license-report -- --check
 npm run lint
 npm run typecheck
 npm run format:check
@@ -39,11 +39,11 @@ npm run validate:dist
 npm run validate:runtime-network
 npm run validate:production-mocks
 npm run verify:pages-base
-npm run package:release -- --require-publishable
+npm run package:release -- --require-publishable --tag v1.0.0-rc.1
 npm run validate:release -- --require-publishable --tag v1.0.0-rc.1
 git add .
-git commit -m "chore: prepare v1.0.0 release"
-git push -u origin release/v1.0.0
+git commit -m "chore: prepare v1.0.0-rc.1"
+git push -u origin release/v1.0.0-rc.1
 ```
 
 After review and merge, the maintainer creates and pushes the RC tag manually:
@@ -53,7 +53,7 @@ git tag -a v1.0.0-rc.1 -m "Snap2Cal v1.0.0-rc.1"
 git push origin v1.0.0-rc.1
 ```
 
-The Release workflow validates the tag, runs the full gate, creates a versioned static-site ZIP and SHA-256 manifest, and creates a **Draft Release** with generated notes. It does not publish to npm and does not publish the draft.
+The Release workflow verifies that the remote tag exists and matches the package version, runs the full gate, creates a versioned static-site ZIP and SHA-256 manifest, and creates a **Draft Release** with generated notes. RC drafts are marked as pre-releases and are not marked Latest. The workflow does not publish to npm or publish the draft.
 
 Download the artifacts, verify the checksum independently, extract the site, and serve it through HTTP. Do not double-click `file://index.html`; module, Worker, and WASM loading requires HTTP.
 

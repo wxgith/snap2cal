@@ -2,7 +2,7 @@
 
 This report is generated from `package-lock.json` metadata by `npm run generate:license-report`. It is an inventory, not legal advice and not a replacement for upstream license texts.
 
-- Lockfile SHA-256: `22a7e6273f90ce6919dfbfd9b16de7113dce3766155e35818c0f8eafdd4927d6`
+- Lockfile SHA-256: `d3cc1b97c5206cc35a80b63be2ba7c80f4d1a18c8abf2f516a05e1483f6c3bea`
 - Installed package entries: 284
 - Direct dependencies: 25
 - Production dependency entries: 16

@@ -17,6 +17,8 @@ jobs:
     name: Validate and draft release
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    env:
+      RELEASE_TAG: ${{ github.ref_name }}
     permissions:
       contents: write
     steps:
@@ -27,7 +29,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Validate tag and package version
-        run: node -e "const p=require('./package.json'); const expected='v' + p.version; if(process.env.GITHUB_REF_NAME !== expected) throw new Error('Tag must equal ' + expected)"
+        run: node scripts/release-tag.mjs "$RELEASE_TAG" "$(node -p "require('./package.json').version")"
       - run: npx playwright install --with-deps chromium firefox webkit
       - run: npm run prepare:ocr
       - run: npm run generate:license-report -- --check
@@ -48,9 +50,19 @@ jobs:
       - run: npm run validate:runtime-network
       - run: npm run validate:production-mocks
       - run: npm run verify:pages-base
-      - run: npm run package:release -- --require-publishable --tag ${{ github.ref_name }}
-      - run: npm run validate:release -- --require-publishable --tag ${{ github.ref_name }}
+      - run: npm run package:release -- --require-publishable --tag "$RELEASE_TAG"
+      - run: npm run validate:release -- --require-publishable --tag "$RELEASE_TAG"
       - name: Create Draft Release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "${{ github.ref_name }}" release/*.zip release/*-SHA256SUMS.txt --draft --generate-notes --title "Snap2Cal ${{ github.ref_name }}"
+        run: |
+          release_channel="$(node scripts/release-tag.mjs "$RELEASE_TAG" "$(node -p "require('./package.json').version")")"
+          release_flags=(--draft --verify-tag --generate-notes --latest=false)
+          if [[ "$release_channel" == "prerelease" ]]; then
+            release_flags+=(--prerelease)
+          fi
+          gh release create "$RELEASE_TAG" \
+            "release/snap2cal-${RELEASE_TAG}-static-site.zip" \
+            "release/snap2cal-${RELEASE_TAG}-SHA256SUMS.txt" \
+            "${release_flags[@]}" \
+            --title "Snap2Cal $RELEASE_TAG"
