@@ -55,6 +55,24 @@ describe("public repository content", () => {
     expect(gitignore).not.toMatch(/^release\/$/m);
   });
 
+  it("keeps generated text stable across operating systems", async () => {
+    const attributes = await read(".gitattributes");
+    expect(attributes).toMatch(/^\* text=auto eol=lf$/m);
+    for (const extension of [
+      "gif",
+      "gz",
+      "ico",
+      "jpeg",
+      "jpg",
+      "png",
+      "wasm",
+      "webp",
+      "woff2",
+      "zip",
+    ])
+      expect(attributes).toMatch(new RegExp(`^\\*\\.${extension} binary$`, "m"));
+  });
+
   it("records the confirmed MIT license and public repository intent", async () => {
     const packageJson = JSON.parse(await read("package.json"));
     const packageLock = JSON.parse(await read("package-lock.json"));

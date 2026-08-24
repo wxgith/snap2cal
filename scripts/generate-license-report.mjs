@@ -27,9 +27,15 @@ function escapeTable(value) {
   return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
 }
 
+function normalizeLineEndings(value) {
+  return value.replaceAll("\r\n", "\n").replaceAll("\r", "\n");
+}
+
 export async function buildLicenseReport(root = REPOSITORY_ROOT) {
   const packageJson = JSON.parse(await readFile(path.join(root, "package.json"), "utf8"));
-  const lockText = await readFile(path.join(root, "package-lock.json"), "utf8");
+  const lockText = normalizeLineEndings(
+    await readFile(path.join(root, "package-lock.json"), "utf8"),
+  );
   const lock = JSON.parse(lockText);
   const runtimeDirect = new Set(Object.keys(packageJson.dependencies ?? {}));
   const developmentDirect = new Set(Object.keys(packageJson.devDependencies ?? {}));
@@ -94,7 +100,7 @@ export async function generateLicenseReport({ root = REPOSITORY_ROOT, check = fa
       throw new Error(
         `${relativePath(root, outputPath)} is missing; run npm run generate:license-report.`,
       );
-    const current = await readFile(outputPath, "utf8");
+    const current = normalizeLineEndings(await readFile(outputPath, "utf8"));
     if (current !== report.content)
       throw new Error(
         `${relativePath(root, outputPath)} is stale; regenerate it from package-lock.json.`,
