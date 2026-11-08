@@ -50,7 +50,7 @@
     "tesseract.js": "7.0.0"
   },
   "devDependencies": {
-    "@axe-core/playwright": "4.13.0",
+    "@axe-core/playwright": "4.14.0",
     "@eslint/js": "latest",
     "@playwright/test": "latest",
     "@testing-library/jest-dom": "latest",
@@ -70,7 +70,7 @@
     "typescript-eslint": "latest",
     "vite": "latest",
     "@vitejs/plugin-react": "latest",
-    "yaml": "2.9.0",
+    "yaml": "2.9.1",
     "vitest": "latest"
   }
 }
